@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
+
 from .models import Project, Tag
 
 
@@ -17,4 +18,5 @@ def contact(request):
 
 
 def project(request, id):
-    return render(request, "project.html")
+    project = get_object_or_404(Project, pk=id)
+    return render(request, "project.html", {"project": project})
