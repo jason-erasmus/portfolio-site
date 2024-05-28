@@ -4,9 +4,13 @@ from .models import Project, Tag
 
 
 def home(request):
+    return render(request, "home.html")
+
+
+def portfolio(request):
     projects = Project.objects.all()
     tags = Tag.objects.all()
-    return render(request, "home.html", {"projects": projects, "tags": tags})
+    return render(request, "portfolio.html", {"projects": projects, "tags": tags})
 
 
 def about(request):
